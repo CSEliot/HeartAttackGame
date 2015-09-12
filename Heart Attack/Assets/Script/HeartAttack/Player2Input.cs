@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 
 // Require a character controller to be attached to the same game object
-[RequireComponent(typeof(Player1Movement))]
+[RequireComponent(typeof(Player2Movement))]
 [AddComponentMenu("Character/FPS Input Controller")]
 
 public class Player2Input : MonoBehaviour
 {
 
-    public Player1Movement p1Movement;
-    public SimpleSmoothMouseLook p1Look;
+    public Player2Movement p2Movement;
+    public SimpleSmoothMouseLook p2Look;
     public float horizontal;
     public float vertical;
     public float horizontalRight;
@@ -18,22 +18,23 @@ public class Player2Input : MonoBehaviour
 
     void Awake()
     {
-        p1Movement = GetComponent<Player1Movement>();
+        p2Movement = GetComponent<Player2Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        p2Look = p2Movement.cameras[p2Movement.currentCamera].GetComponent<SimpleSmoothMouseLook>();
         //horizontal = Input.GetAxis("Horizontal_P1");  //360 Controller
         //vertical = Input.GetAxis("Vertical_P1");
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        horizontal = (Input.GetButtonDown("Horizontal_P2") ? 1 : 0);
+        vertical = Input.GetAxis("Vertical_P2");
         //horizontalRight = Input.GetAxis("HorizontalRight_P1");
         //verticalRight = Input.GetAxis("VerticalRight_P1");
         horizontalRight = -Input.GetAxis("Mouse X");
         verticalRight = Input.GetAxis("Mouse Y");
 
-        p1Movement.MoveInput(horizontal, vertical);
-        p1Look.LookInput(horizontalRight, verticalRight);
+        p2Movement.MoveInput(horizontal);
+        p2Look.LookInput(horizontalRight, verticalRight);
     }
 }

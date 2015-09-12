@@ -26,12 +26,12 @@ public class Player1Input : MonoBehaviour
     {
         //horizontal = Input.GetAxis("Horizontal_P1");  //360 Controller
         //vertical = Input.GetAxis("Vertical_P1");
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal_P1");
+        vertical = Input.GetAxis("Vertical_P1");
         //horizontalRight = Input.GetAxis("HorizontalRight_P1");
         //verticalRight = Input.GetAxis("VerticalRight_P1");
-        horizontalRight = -Input.GetAxis("Mouse X");
-        verticalRight = Input.GetAxis("Mouse Y");
+        horizontalRight = -Input.GetAxis("HorizontalRight_P1");
+        verticalRight = Input.GetAxis("VerticalRight_P1");
 
         p1Movement.MoveInput(horizontal, vertical);
         p1Look.LookInput(horizontalRight, verticalRight);
