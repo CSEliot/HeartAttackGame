@@ -27,8 +27,7 @@ public class Player2Input : MonoBehaviour
         p2Look = p2Movement.cameras[p2Movement.currentCamera].GetComponent<SimpleSmoothMouseLook>();
         //horizontal = Input.GetAxis("Horizontal_P1");  //360 Controller
         //vertical = Input.GetAxis("Vertical_P1");
-        horizontal = (Input.GetButtonDown("Horizontal_P2") ? 1 : 0);
-        vertical = Input.GetAxis("Vertical_P2");
+        horizontal = (Input.GetButtonDown("Left_P2") ? -1 : 0) + (Input.GetButtonDown("Right_P2") ? 1 : 0);
         //horizontalRight = Input.GetAxis("HorizontalRight_P1");
         //verticalRight = Input.GetAxis("VerticalRight_P1");
         horizontalRight = -Input.GetAxis("Mouse X");

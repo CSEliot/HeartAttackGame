@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class Player2Movement : MonoBehaviour {
 
     public GameObject[] cameras;
     public int currentCamera = 0;
+    public GameObject canvas;
 
     private Rigidbody rb;
     public float thrust = 2.0f;
@@ -24,6 +26,7 @@ public class Player2Movement : MonoBehaviour {
     }
 
     void Start(){
+        canvas = GameObject.Find("Canvas (1)");
         cameras = GameObject.FindGameObjectsWithTag("Statue");
         for (int i = 1; i < cameras.Length; i++) {
             cameras[i].SetActive(false);
@@ -32,14 +35,17 @@ public class Player2Movement : MonoBehaviour {
 
     public void MoveInput(float horizontal)
     {
-        cameras[currentCamera].SetActive(false);
-        currentCamera += (int)horizontal;
-        if (currentCamera >= cameras.Length) {
-            currentCamera = 0;
-        } else if (currentCamera < 0) {
-            currentCamera = cameras.Length - 1;
+        if (horizontal != 0) {
+            cameras[currentCamera].SetActive(false);
+            currentCamera += (int)horizontal;
+            if (currentCamera >= cameras.Length) {
+                currentCamera = 0;
+            } else if (currentCamera < 0) {
+                currentCamera = cameras.Length - 1;
+            }
+            cameras[currentCamera].SetActive(true);
+            canvas.GetComponent<Canvas>().worldCamera = cameras[currentCamera].GetComponent<Camera>();
         }
-        cameras[currentCamera].SetActive(true);
     }
 
     public bool IsGrounded(){
