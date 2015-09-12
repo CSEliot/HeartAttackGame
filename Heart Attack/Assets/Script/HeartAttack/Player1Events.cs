@@ -12,12 +12,15 @@ public class Player1Events : MonoBehaviour {
     public static event P1EventHandler lookItem;
     public static event P1EventHandler lookNothing;
     public static event P1EventHandler actionButtonPressed;
+    public ScaryScript scaryValue;
 
+    public float sanityMeter;
     public string lastName = "";
 
 	// Use this for initialization
 	void Start () {
         p1Cam = GetComponent<Camera>();
+        sanityMeter = 100f;
 	}
 	
 	// Update is called once per frame
@@ -29,10 +32,22 @@ public class Player1Events : MonoBehaviour {
                     //Debug.Log("Updating item text");
                     lastName = hit.transform.name;
                     LookingItem(hit.transform.gameObject);
+
                 }else{
                     //Debug.Log("Item does not have correct tag");
                     lastName = hit.transform.name;
                     LookingNothing();
+                }
+            }
+
+            if (hit.transform.GetComponent<ScaryScript>() != null)
+            {
+                scaryValue = hit.transform.GetComponent<ScaryScript>();
+                if (scaryValue.Value > 0)
+                {
+                    sanityMeter -= scaryValue.Value;
+                    //Remove comment to see value decrease. Does not end game when 0 is reached yet
+                    //Debug.Log("New sanity value is " + sanityMeter);
                 }
             }
 
