@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\HeartAttack\BackpackSystem.cs" />
     <Compile Include="Assets\Script\HeartAttack\CharacterMotor.cs" />
     <Compile Include="Assets\Script\HeartAttack\InterTextUpdate.cs" />
+    <Compile Include="Assets\Script\HeartAttack\Item.cs" />
     <Compile Include="Assets\Script\HeartAttack\PlatformInputController.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player1Events.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player1Input.cs" />
