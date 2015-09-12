@@ -16,6 +16,13 @@ public class Player1Input : MonoBehaviour
     public float horizontalRight;
     public float verticalRight;
 
+    public int dpadNumber;
+
+    public enum DpadInputs { Up, Down, Left, Right };
+
+    public delegate void P1DpadHandler(DpadInputs input);
+    public static event P1DpadHandler dpadPressed;
+
     void Awake()
     {
         p1Movement = GetComponent<Player1Movement>();
@@ -35,5 +42,32 @@ public class Player1Input : MonoBehaviour
 
         p1Movement.MoveInput(horizontal, vertical);
         p1Look.LookInput(horizontalRight, verticalRight);
+
+        Debug.Log(Input.GetAxis("DpadHorizontal_P1"));
+
+        if (Input.GetAxisRaw("DpadHorizontal_P1") == -1){
+            //Debug.Log("Dpad horizontal -1");
+            DpadCall(DpadInputs.Left);
+        }else if (Input.GetAxisRaw("DpadHorizontal_P1") ==  1){
+            //Debug.Log("Dpad horizontal 1");
+            DpadCall(DpadInputs.Right);
+        }
+        else if (Input.GetAxisRaw("DpadVertical_P1") == 1){
+           // Debug.Log("Dpad vertical 1");
+            DpadCall(DpadInputs.Up);
+        }
+        else if (Input.GetAxisRaw("DpadVertical_P1") == -1){
+            //Debug.Log("Dpad vertical -1");
+            DpadCall(DpadInputs.Down);
+        }
     }
+
+    public static void DpadCall(DpadInputs dpadVal)
+    {
+        if (dpadPressed != null)
+        {
+            dpadPressed(dpadVal);
+        }
+    }
+
 }
