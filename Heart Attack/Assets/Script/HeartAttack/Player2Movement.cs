@@ -31,6 +31,8 @@ public class Player2Movement : MonoBehaviour {
         for (int i = 1; i < cameras.Length; i++) {
             cameras[i].SetActive(false);
         }
+
+        canvas.GetComponent<Canvas>().worldCamera = cameras[currentCamera].GetComponent<Camera>();
     }
 
     public void MoveInput(float horizontal)
