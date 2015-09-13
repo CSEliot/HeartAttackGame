@@ -41,6 +41,7 @@ public class Player1Input : MonoBehaviour {
 
         p1Movement.MoveInput(horizontal, vertical);
         p1Look.LookInput(horizontalRight, verticalRight);
+        Debug.Log(horizontal);
 
         //Debug.Log(Input.GetAxis("DpadHorizontal_P1"));
 

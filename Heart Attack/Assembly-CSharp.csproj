@@ -45,26 +45,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
-     <Compile Include="Assets\Script\Enemy\EnemyAttack.cs" />
-     <Compile Include="Assets\Script\Enemy\EnemyHealth.cs" />
-     <Compile Include="Assets\Script\Enemy\EnemyMovement.cs" />
+     <Compile Include="Assets\Script\HeartAttack\BackpackSystem.cs" />
      <Compile Include="Assets\Script\HeartAttack\CharacterMotor.cs" />
+     <Compile Include="Assets\Script\HeartAttack\HeartRate.cs" />
      <Compile Include="Assets\Script\HeartAttack\InterTextUpdate.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Item.cs" />
      <Compile Include="Assets\Script\HeartAttack\PlatformInputController.cs" />
      <Compile Include="Assets\Script\HeartAttack\Player1Events.cs" />
      <Compile Include="Assets\Script\HeartAttack\Player1Input.cs" />
      <Compile Include="Assets\Script\HeartAttack\Player1Movement.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Player2Events.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Player2FreeRoamInput.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Player2FreeRoamMovement.cs" />
      <Compile Include="Assets\Script\HeartAttack\Player2Input.cs" />
      <Compile Include="Assets\Script\HeartAttack\Player2Movement.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Player2Timer.cs" />
+     <Compile Include="Assets\Script\HeartAttack\Scare.cs" />
      <Compile Include="Assets\Script\HeartAttack\ScaryScript.cs" />
      <Compile Include="Assets\Script\HeartAttack\SimpleSmoothMouseLook.cs" />
-     <Compile Include="Assets\Script\Managers\EnemyManager.cs" />
-     <Compile Include="Assets\Script\Managers\GameOverManager.cs" />
-     <Compile Include="Assets\Script\Managers\ScoreManager.cs" />
-     <Compile Include="Assets\Script\Player\PlayerHealth.cs" />
-     <Compile Include="Assets\Script\Player\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Player\PlayerShooting.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
