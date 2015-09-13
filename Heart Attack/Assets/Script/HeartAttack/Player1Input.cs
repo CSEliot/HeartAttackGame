@@ -6,8 +6,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Player1Movement))]
 [AddComponentMenu("Character/FPS Input Controller")]
 
-public class Player1Input : MonoBehaviour
-{
+public class Player1Input : MonoBehaviour {
 
     public Player1Movement p1Movement;
     public SimpleSmoothMouseLook p1Look;
@@ -22,16 +21,15 @@ public class Player1Input : MonoBehaviour
 
     public delegate void P1DpadHandler(DpadInputs input);
     public static event P1DpadHandler dpadPressed;
+    public static event P1DpadHandler aButtonPressed;
     public static event P1DpadHandler aButtonAndDpad;
 
-    void Awake()
-    {
+    void Awake() {
         p1Movement = GetComponent<Player1Movement>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         //horizontal = Input.GetAxis("Horizontal_P1");  //360 Controller
         //vertical = Input.GetAxis("Vertical_P1");
         horizontal = Input.GetAxis("Horizontal_P1");
@@ -46,51 +44,54 @@ public class Player1Input : MonoBehaviour
 
         //Debug.Log(Input.GetAxis("DpadHorizontal_P1"));
 
-        if (Input.GetAxisRaw("DpadHorizontal_P1") == -1){
+        if (Input.GetAxisRaw("DpadHorizontal_P1") == -1) {
             //Debug.Log("Dpad horizontal -1");
             DpadCall(DpadInputs.Left);
-            if (Input.GetButtonDown("360_A_Button")){
-                APlusDpad(DpadInputs.Left);
-            }
-        }else if (Input.GetAxisRaw("DpadHorizontal_P1") ==  1){
+            //if (Input.GetButtonDown("360_A_Button")){
+            APlusDpad(DpadInputs.Left);
+            //}
+        } else if (Input.GetAxisRaw("DpadHorizontal_P1") == 1) {
             //Debug.Log("Dpad horizontal 1");
             DpadCall(DpadInputs.Right);
-            if (Input.GetButtonDown("360_A_Button"))
-            {
-                APlusDpad(DpadInputs.Right);
-            }
-        }
-        else if (Input.GetAxisRaw("DpadVertical_P1") == 1){
-           // Debug.Log("Dpad vertical 1");
+            //if (Input.GetButtonDown("360_A_Button"))
+            //{
+            APlusDpad(DpadInputs.Right);
+            //}
+        } else if (Input.GetAxisRaw("DpadVertical_P1") == 1) {
+            // Debug.Log("Dpad vertical 1");
             DpadCall(DpadInputs.Up);
-            if (Input.GetButtonDown("360_A_Button"))
-            {
-                APlusDpad(DpadInputs.Up);
-            }
-        }
-        else if (Input.GetAxisRaw("DpadVertical_P1") == -1){
+            //if (Input.GetButtonDown("360_A_Button"))
+            // {
+            APlusDpad(DpadInputs.Up);
+            //}
+        } else if (Input.GetAxisRaw("DpadVertical_P1") == -1) {
             //Debug.Log("Dpad vertical -1");
             DpadCall(DpadInputs.Down);
-            if (Input.GetButtonDown("360_A_Button"))
-            {
-                APlusDpad(DpadInputs.Down);
-            }
+            //if (Input.GetButtonDown("360_A_Button"))
+            // {
+            APlusDpad(DpadInputs.Down);
+            //}
+        } else if (Input.GetButtonDown("360_A_Button")) {
+            APressed();
         }
+
     }
 
-    public static void DpadCall(DpadInputs dpadVal)
-    {
-        if (dpadPressed != null)
-        {
+    public static void DpadCall(DpadInputs dpadVal) {
+        if (dpadPressed != null) {
             dpadPressed(dpadVal);
         }
     }
 
-    public static void APlusDpad(DpadInputs dpadVal)
-    {
-        if (dpadPressed != null)
-        {
+    public static void APlusDpad(DpadInputs dpadVal) {
+        if (dpadPressed != null) {
             aButtonAndDpad(dpadVal);
+        }
+    }
+
+    public static void APressed() {
+        if (aButtonPressed != null) {
+            aButtonPressed(DpadInputs.Up);
         }
     }
 
