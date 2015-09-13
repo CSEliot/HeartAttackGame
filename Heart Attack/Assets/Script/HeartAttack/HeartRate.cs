@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,9 +11,11 @@ public class HeartRate : MonoBehaviour {
     private float calmRate = -0.1f;
     private float timeWhenEnds;
     private bool scaredRecently;
+    private Slider hrBar;
 
     void Start() {
-        InvokeRepeating("LowerRate", 1f, 1f);
+        hrBar = GameObject.Find("Slider").GetComponent<Slider>();
+        InvokeRepeating("LowerHR", 1f, 1f);
     }
 
     void LowerHR() {
@@ -39,7 +42,7 @@ public class HeartRate : MonoBehaviour {
         if (s != null && s.canTrigger) {
             Scared(s.magnitude);
             s.canTrigger = false;
-            s.Invoke("CanTrigger", 60f);
+            s.Invoke("CanTrigger", 30f);
         }
     }
 }

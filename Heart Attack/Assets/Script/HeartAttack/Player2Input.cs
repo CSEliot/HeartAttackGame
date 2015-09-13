@@ -18,6 +18,7 @@ public class Player2Input : MonoBehaviour
 
     void Awake()
     {
+        //Cursor.lockState = CursorLockMode.Locked;
         p2Movement = GetComponent<Player2Movement>();
     }
 

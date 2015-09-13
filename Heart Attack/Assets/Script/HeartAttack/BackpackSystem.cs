@@ -29,6 +29,7 @@ public class BackpackSystem : MonoBehaviour {
         Player1Input.aButtonAndDpad += AddLookItem;
         Player1Input.aButtonPressed += AddLookItemDrag;
         Player1Events.lookItem += StoreLookItem;
+        Player1Events.lookNothing += ClearLookItem;
     }
 
     void Update() {
@@ -51,8 +52,8 @@ public class BackpackSystem : MonoBehaviour {
             for (int i = 0; i < 4; i++) {
                 if (i == (int)input) {
                     backpackSlots[(int)input].transform.position = p1Cam.transform.position + (p1Cam.transform.forward * forwardVal) + (p1Cam.transform.right * rightVal) + (p1Cam.transform.up * upVal) ;
-                    backpackSlots[(int)input].transform.eulerAngles = new Vector3(p1Cam.transform.eulerAngles.x * 0.01f + 50, player.eulerAngles.y + 180, player.eulerAngles.z);
                     backpackSlots[(int)input].transform.SetParent(p1Cam.transform);
+                    backpackSlots[(int)input].transform.localEulerAngles = new Vector3(0, 0, 0);
                     backpackSlots[(int)input].GetComponent<Collider>().enabled = false;
                     backpackSlots[(int)input].SetActive(true);
                     backpackSlots[(int)input].GetComponent<Rigidbody>().isKinematic = true;
@@ -106,6 +107,7 @@ public class BackpackSystem : MonoBehaviour {
                     equipBody = backpackSlots[(int)input].GetComponent<Rigidbody>();
                     equipBody.isKinematic = false;
                     equipBody.useGravity = true;
+                    equipBody.gameObject.GetComponent<Collider>().enabled = true;
                     backpackSlots[(int)input] = properLookItem;
                 }
                 //Debug.Log(properLookItem.name);
@@ -115,5 +117,9 @@ public class BackpackSystem : MonoBehaviour {
             }
         }
 
+    }
+
+    private void ClearLookItem(GameObject item) {
+        properLookItem = null;
     }
 }

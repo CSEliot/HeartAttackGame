@@ -23,16 +23,19 @@ public class Player2Movement : MonoBehaviour {
 
     void Awake(){
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Start(){
-        canvas = GameObject.Find("Canvas (1)");
         cameras = GameObject.FindGameObjectsWithTag("Statue");
-        for (int i = 1; i < cameras.Length; i++) {
+        for (int i = 0; i < cameras.Length; i++) {
             cameras[i].SetActive(false);
         }
 
+        canvas = GameObject.Find("Canvas (1)");
         canvas.GetComponent<Canvas>().worldCamera = cameras[currentCamera].GetComponent<Camera>();
+
+        //Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Start(){
+        
     }
 
     public void MoveInput(float horizontal)

@@ -21,6 +21,14 @@ public class Player2Timer : MonoBehaviour {
         {
             p1TimerText.text = minutes.ToString() + ":" + (seconds < 10 ? ("0" + seconds.ToString()) : seconds.ToString());
             Debug.Log(minutes + ":" + (seconds < 10 ? ("0" + seconds.ToString()) : seconds.ToString()));
+        } else {
+            gameObject.GetComponent<Player2Movement>().enabled = true;
+            gameObject.GetComponent<Player2Input>().enabled = true;
+            gameObject.GetComponent<Player2FreeRoamInput>().enabled = false;
+            gameObject.GetComponent<Player2FreeRoamMovement>().enabled = false;
+            enabled = false;
+            gameObject.GetComponent<Player2Movement>().cameras[0].SetActive(true);
+            gameObject.GetComponentInChildren<Camera>().enabled = false;
         }
 
     }

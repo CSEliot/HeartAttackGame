@@ -29,28 +29,28 @@ public class Player2FreeRoamInput : MonoBehaviour {
         p2FreeLook.LookInput(horizontalRight, verticalRight);
         
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetButton("Forward_P2"))
         {
 
             movement.z += speed;
 
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetButton("Backward_P2"))
         {
 
             movement.z -= speed;
 
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetButton("Left_P2"))
         {
 
             movement.x -= speed;
         
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetButton("Right_P2"))
         {
 
             movement.x += speed;

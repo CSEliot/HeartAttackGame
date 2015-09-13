@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Player1Movement : MonoBehaviour {
+    public GameObject canvas;
 
     private Rigidbody rb;
     public float thrust = 2.0f;
@@ -18,6 +19,9 @@ public class Player1Movement : MonoBehaviour {
 
     void Awake(){
         rb = GetComponent<Rigidbody>();
+
+        canvas = GameObject.Find("Player1UI");
+        canvas.GetComponent<Canvas>().worldCamera = gameObject.GetComponentInChildren<Camera>();
     }
 
     void Start(){
