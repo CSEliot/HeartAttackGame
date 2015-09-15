@@ -15,7 +15,13 @@ public class HeartRate : MonoBehaviour {
 
     void Start() {
         hrBar = GameObject.Find("Slider").GetComponent<Slider>();
-        InvokeRepeating("LowerHR", 1f, 1f);
+        InvokeRepeating("LowerHR", 10f, 10f);
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            ChangeHR(1);
+        }
     }
 
     void LowerHR() {
@@ -33,8 +39,8 @@ public class HeartRate : MonoBehaviour {
             hRScale = 0;
         }
         heartRate = Mathf.Sqrt(hRScale) * 70f + 70f;
-        
-        Debug.Log(heartRate);
+
+        hrBar.value = (heartRate - 70f) / (140f);
     }
 
 	void OnTriggerEnter(Collider other) {
