@@ -22,6 +22,8 @@ public class HeartRate : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Tab)) {
             ChangeHR(1);
         }
+
+        hrBar.value = Mathf.Lerp(hrBar.value, (heartRate - 70f) / (140f), Time.deltaTime);
     }
 
     void LowerHR() {
@@ -39,8 +41,6 @@ public class HeartRate : MonoBehaviour {
             hRScale = 0;
         }
         heartRate = Mathf.Sqrt(hRScale) * 70f + 70f;
-
-        hrBar.value = (heartRate - 70f) / (140f);
     }
 
 	void OnTriggerEnter(Collider other) {

@@ -10,6 +10,10 @@ public class Player2Timer : MonoBehaviour {
     public Text p1TimerText;
 
 	
+    void Start() {
+        GameObject canvas = GameObject.Find("P2Canvas");
+        canvas.GetComponent<Canvas>().worldCamera = gameObject.GetComponent<Camera>();
+    }
 	// Update is called once per frame
     void Update()
     {

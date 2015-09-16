@@ -8,29 +8,27 @@ public class Player2Events : MonoBehaviour {
     private RaycastHit hit;
     public float reachDistance;
 
-    ////   public delegate void P1EventHandler(GameObject item);
-    ////   public static event P1EventHandler lookItem;
-    ////   public static event P1EventHandler lookNothing;
-    ////   public static event P1EventHandler actionButtonPressed;
-    ////   public ScaryScript scaryValue;
+    //   public delegate void P1EventHandler(GameObject item);
+    //   public static event P1EventHandler lookItem;
+    //   public static event P1EventHandler lookNothing;
+    //   public static event P1EventHandler actionButtonPressed;
+    //   public ScaryScript scaryValue;
 
-    ////   public float sanityMeter;
-    ////   public string lastName = "";
+    //   public float sanityMeter;
+    //   public string lastName = "";
 
-    ////// Use this for initialization
+    // Use this for initialization
     void Start() {
         p2Cam = GetComponent<Camera>();
         //sanityMeter = 100f;
     }
 
-    //// Update is called once per frame
+    // Update is called once per frame
     void Update() {
         ray = p2Cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         if (Physics.Raycast(ray, out hit, reachDistance)) {
             if (hit.transform.CompareTag("Interactable") && Input.GetButtonDown("Click_P2")) {
-                Debug.Log("clicked interactable");
-                GameObject light = hit.transform.GetChild(0).gameObject;
-                light.SetActive(!light.activeSelf);
+                hit.transform.gameObject.GetComponent<Scare>().Trigger();
             }
 
             //if (hit.transform.GetComponent<ScaryScript>() != null)
