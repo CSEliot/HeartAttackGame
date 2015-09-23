@@ -51,7 +51,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
     void FixedUpdate()
     {
         // Ensure the cursor is always locked when set
-        //Cursor.lockState  = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = lockCursor;
 
         // Allow the script to clamp based on a desired target value.

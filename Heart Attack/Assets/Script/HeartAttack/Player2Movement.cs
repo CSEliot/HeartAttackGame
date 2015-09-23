@@ -29,9 +29,10 @@ public class Player2Movement : MonoBehaviour {
         }
 
         canvas = GameObject.Find("P2Canvas");
-        canvas.GetComponent<Canvas>().worldCamera = cameras[currentCamera].GetComponent<Camera>();
+        
 
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Start(){

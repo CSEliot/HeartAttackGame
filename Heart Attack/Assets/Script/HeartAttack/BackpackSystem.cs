@@ -51,9 +51,10 @@ public class BackpackSystem : MonoBehaviour {
         if (backpackSlots[(int)input] != null) {
             for (int i = 0; i < 4; i++) {
                 if (i == (int)input) {
-                    backpackSlots[(int)input].transform.position = p1Cam.transform.position + (p1Cam.transform.forward * forwardVal) + (p1Cam.transform.right * rightVal) + (p1Cam.transform.up * upVal) ;
+                    //backpackSlots[(int)input].transform.position = p1Cam.transform.position + (p1Cam.transform.forward * forwardVal) + (p1Cam.transform.right * rightVal) + (p1Cam.transform.up * upVal) ;
                     backpackSlots[(int)input].transform.SetParent(p1Cam.transform);
-                    backpackSlots[(int)input].transform.localEulerAngles = new Vector3(0, 0, 0);
+                    backpackSlots[(int)input].transform.localEulerAngles = new Vector3(85.43121f, 352.1493f, 352.3017f);
+                    backpackSlots[(int)input].transform.localPosition = new Vector3(0.2835201f, -0.2642593f, 0.2328405f);
                     backpackSlots[(int)input].GetComponent<Collider>().enabled = false;
                     backpackSlots[(int)input].SetActive(true);
                     backpackSlots[(int)input].GetComponent<Rigidbody>().isKinematic = true;
