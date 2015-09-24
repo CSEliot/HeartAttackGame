@@ -84,8 +84,11 @@
     <Compile Include="Assets\Script\HeartAttack\Player1Input.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player1Movement.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player2Events.cs" />
+    <Compile Include="Assets\Script\HeartAttack\Player2FreeRoamInput.cs" />
+    <Compile Include="Assets\Script\HeartAttack\Player2FreeRoamMovement.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player2Input.cs" />
     <Compile Include="Assets\Script\HeartAttack\Player2Movement.cs" />
+    <Compile Include="Assets\Script\HeartAttack\Player2Timer.cs" />
     <Compile Include="Assets\Script\HeartAttack\Scare.cs" />
     <Compile Include="Assets\Script\HeartAttack\ScaryScript.cs" />
     <Compile Include="Assets\Script\HeartAttack\SimpleSmoothMouseLook.cs" />
