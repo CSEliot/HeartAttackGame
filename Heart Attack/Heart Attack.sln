@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heart Attack.CSharp.Plugins", "Heart Attack.CSharp.Plugins.csproj", "{7820BE3A-C41F-E7CC-3B8B-963874BA0BC1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heart Attack.CSharp", "Heart Attack.CSharp.csproj", "{94FB8EF7-DBD7-5477-8787-520B013D973C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heart Attack.CSharp.Editor", "Heart Attack.CSharp.Editor.csproj", "{26EAF0CC-EFAF-318B-D8F9-24676C21105E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,18 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7820BE3A-C41F-E7CC-3B8B-963874BA0BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7820BE3A-C41F-E7CC-3B8B-963874BA0BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7820BE3A-C41F-E7CC-3B8B-963874BA0BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7820BE3A-C41F-E7CC-3B8B-963874BA0BC1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94FB8EF7-DBD7-5477-8787-520B013D973C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94FB8EF7-DBD7-5477-8787-520B013D973C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FB8EF7-DBD7-5477-8787-520B013D973C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FB8EF7-DBD7-5477-8787-520B013D973C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26EAF0CC-EFAF-318B-D8F9-24676C21105E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26EAF0CC-EFAF-318B-D8F9-24676C21105E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26EAF0CC-EFAF-318B-D8F9-24676C21105E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26EAF0CC-EFAF-318B-D8F9-24676C21105E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
